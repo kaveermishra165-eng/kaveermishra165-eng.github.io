@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Himanshi ❤️</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif}
+body{
+  color:#fff;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(255,105,180,.22),transparent 28%),
+    radial-gradient(circle at 80% 80%,rgba(180,80,255,.18),transparent 30%),
+    linear-gradient(145deg,#160812,#2b0b20 48%,#09040c);
+  overflow-x:hidden;
+}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{position:absolute;bottom:-30px;opacity:0;animation:float 8s linear infinite}
+@keyframes float{0%{transform:translateY(0) scale(.7) rotate(0);opacity:0}15%{opacity:.7}100%{transform:translateY(-110vh) scale(1.25) rotate(25deg);opacity:0}}
+.wrap{position:relative;z-index:1;max-width:700px;margin:auto;padding:24px 18px 70px}
+.card{
+  min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:34px 22px;border:1px solid rgba(255,255,255,.15);
+  border-radius:28px;background:rgba(255,255,255,.07);backdrop-filter:blur(12px);
+  box-shadow:0 20px 70px rgba(0,0,0,.45);margin:12px 0 28px;
+}
+.small{letter-spacing:4px;text-transform:uppercase;font-size:12px;opacity:.72}
+h1{font-size:clamp(42px,13vw,78px);margin:18px 0 8px;line-height:1}
+.name{background:linear-gradient(90deg,#fff,#ffc3df,#fff);-webkit-background-clip:text;color:transparent}
+.subtitle{font-size:19px;line-height:1.7;max-width:520px;color:#f8dce9}
+button{
+  border:0;border-radius:999px;padding:15px 26px;font-size:16px;font-weight:bold;
+  color:#35101f;background:#fff;box-shadow:0 10px 35px rgba(255,120,180,.25);
+  cursor:pointer;margin-top:20px
+}
+section{padding:34px 10px;text-align:center}
+h2{font-size:32px;margin:8px 0 18px}
+p{font-size:18px;line-height:1.8;color:#f5dce8}
+.letter{padding:26px;border-radius:24px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.12)}
+.signature{font-size:24px;margin-top:25px}
+.reveal{opacity:0;transform:translateY(20px);transition:1s}
+.reveal.show{opacity:1;transform:none}
+.final{font-size:25px;line-height:1.6}
+footer{opacity:.55;text-align:center;font-size:13px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts"></div>
+
+<main class="wrap">
+  <div class="card">
+    <div class="small">A little something for you</div>
+    <h1><span class="name">Himanshi</span> ❤️</h1>
+    <div class="subtitle">
+      Meri Bacchu... meri Gudiya... meri Suggu...<br>
+      ye chhoti si duniya sirf tumhare liye.
+    </div>
+    <button onclick="document.getElementById('story').scrollIntoView({behavior:'smooth'})">Open my heart ❤️</button>
+  </div>
+
+  <section id="story" class="reveal">
+    <div class="small">For my favourite person</div>
+    <h2>Ek baat kehni thi...</h2>
+    <div class="letter">
+      <p>
+        Pata nahi kab tum sirf ek insaan se meri sabse khoobsurat aadat ban gayi.
+        Kab tumhari ek smile mera mood theek karne lagi, aur kab tumhari awaaz
+        sunna meri roz ki zarurat ban gaya.
+      </p>
+      <p>
+        Bacchu, Gudiya, Suggu — naam chahe kitne bhi hon,
+        mere liye tum ek hi ho... <b>meri wali. ❤️</b>
+      </p>
+      <p>
+        Zindagi hamesha perfect nahi hogi. Kabhi nok-jhok hogi, kabhi
+        misunderstandings bhi hongi. Lekin ek cheez main chahta hoon —
+        hum har baar ek doosre ka haath pakad kar wapas wahi aa jaayein,
+        jahan sirf hum dono hain.
+      </p>
+      <p>
+        Tum mere liye sirf aaj ki khushi nahi ho.
+        Tum un kalon ka bhi hissa ho jinke baare mein main sapne dekhta hoon.
+      </p>
+      <div class="signature">Hamesha tumhara ❤️</div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="small">One last thing</div>
+    <h2>Sunogi, meri Gudiya?</h2>
+    <p class="final">
+      Agar mujhe dobara zindagi choose karne ka mauka mile,<br>
+      toh main phir se tumhe hi choose karunga. ❤️
+    </p>
+    <button onclick="surprise()">Ek surprise hai 💖</button>
+    <p id="surprise" style="display:none;font-size:22px">
+      I love you, Himanshi. ❤️<br>
+      <span style="font-size:16px">— Tumhara pagal sa insaan</span>
+    </p>
+  </section>
+
+  <footer>Made with love, only for Himanshi ❤️</footer>
+</main>
+
+<script>
+const box=document.getElementById('hearts');
+for(let i=0;i<24;i++){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.textContent=['❤️','💕','💗','💖'][i%4];
+  h.style.left=Math.random()*100+'%';
+  h.style.animationDelay=(Math.random()*8)+'s';
+  h.style.fontSize=(14+Math.random()*18)+'px';
+  box.appendChild(h);
+}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+function surprise(){
+  document.getElementById('surprise').style.display='block';
+  for(let i=0;i<25;i++){
+    setTimeout(()=>{
+      const h=document.createElement('div');h.textContent='❤️';h.className='heart';
+      h.style.left=(35+Math.random()*30)+'%';h.style.bottom='20%';
+      h.style.animationDuration='3s';h.style.fontSize=(18+Math.random()*22)+'px';
+      box.appendChild(h);setTimeout(()=>h.remove(),3200);
+    },i*70);
+  }
+}
+</script>
+</body>
+</html>
